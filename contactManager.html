@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Manager</title>
+  </head>
+  <style>
+   .row{
+       border:thin black solid;
+   }
+   .column{
+       border:thin black solid;
+   }
+   .contactTable{
+        width:70%;
+        border:thin black solid;
+        border-collapse: collapse;
+   }
+   .buttonSection{
+       display: inline-flex;
+       float:right;
+   }
+   .createBtn {
+        float: right;
+        color: white;
+        background-color: cadetblue;
+        width: 150px;
+        height: 45px;
+        border-radius: 30px;
+        cursor: pointer;
+   }
+   .modalClass {
+       display: none;
+       height:50%;
+       width:50%;
+       z-index:100;
+       position:fixed;
+       background-color: #436271;
+       transform: translate(56%,48%);
+       border: thin black solid;
+       color:white;
+   }
+   .addBtn{
+        float: left;
+        color: white;
+        background-color: cadetblue;
+        width: 150px;
+        height: 45px;
+        border-radius: 30px;
+        cursor: pointer;
+   }
+   /* td,th {
+	font-family: monospace;
+	padding: 4px;
+    background-color: #ccc;
+    border:thin black solid;
+   } */
+
+    label {
+        vertical-align: top;
+    }
+
+    #PlayArea {
+        border: 1px dotted blue;
+        padding: 6px;
+        background-color: #ccc;
+        margin-right: 50%;
+    }
+
+    #items_table {
+        border: 1px dotted blue;
+        padding: 6px;
+        transform: translate(15%,106%);
+        width: 80%;
+    }
+
+    #items_table h2 {
+        font-size: 18px;
+        margin-top: 0px;
+        font-family: sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    td{
+        border:thin black solid;
+    }
+  </style>
+  <body onload="doShowAll()">
+      <div  id="modal" class="modalClass">
+            <div style="display: inline-flex;"> <h1>Add Contact</h1></div>
+            <form style="text-align: center;">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Enter Name" id="name" ><br><br>
+                <label for="Number">Number</label>
+                <input type="number" onchange="checkLimit()" placeholder="Enter Number" id="number"><br><br>
+                <div style="display: inline;">
+                <input type="button" class="addBtn" onclick="SaveItem()" value="Add Contact"/>
+                <input type="button" class="addBtn" onclick="RemoveItem()" value="Remove Contact"/>
+                <input type="button" class="addBtn" onclick="ModifyItem()" value="Edit Contact"/>
+                </div>
+            </form>
+            <div style="float: right; margin-top: 70px;margin-right: 36px;"> <span style="float:right; cursor:pointer;background-color: coral;padding-top: 14px;border-radius: 18px; text-align: center;"  class ="addBtn" onclick="closeModal()">close</span></div>
+          
+      </div>
+      <div class="buttonSection">
+          <button class="createBtn" onclick="createContacts();">Manage Contacts</button>
+      </div>
+      <div id="items_table">
+			<h2>Contacts List</h2>
+			<table class="contactTable" id=list></table>
+			<span>
+                <input type=button class="addBtn" style=" margin-top: -61px;margin-left: 974px;" value="Clear All" onclick="ClearAll()">
+            </span>    
+	   </div>
+  </body>
+  <div class="beforeModalContainer"></div>
+  <script src="./contactManager.js"></script>
+
+</html>
