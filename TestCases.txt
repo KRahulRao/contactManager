@@ -1,0 +1,7 @@
+Test cases-
+
+1.Duplicate Records.
+2.Limit on the phonenumber length.
+3.Name and Number fields cannot be empty.
+4.Fields to be displayed on page load.
+5.Data to remain eveb after reload.

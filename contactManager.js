@@ -9,10 +9,11 @@
 			
             var name = document.getElementById('name').value;
             var number = document.getElementById('number').value;
+            while(name.length !==0 && name.length !==0){
             localStorage.setItem(name, number);
             doShowAll();
             document.getElementById('modal').style.display= "none";
-            
+            }
         }
         
         function ModifyItem() {
